@@ -28,6 +28,7 @@
     [botao sizeToFit];
     botao.center = self.view.center;
     
+    
     [self.view addSubview:botao];
     
  
