@@ -11,20 +11,21 @@
 
 @interface DicionarioViewController (){
     Dicionario *dic;
-    UILabel *label;
+    
     UIImageView *imageView;
-    int aux;
+    
 }
 
 @end
 
 @implementation DicionarioViewController
-
+@synthesize label,aux,imageView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     dic = [[Dicionario alloc] init];
     [dic banco]; //inicializa os meus arrays.
     
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     //BOTÃO NEXT.
     UIBarButtonItem *next = [[UIBarButtonItem alloc]
@@ -51,30 +52,59 @@
 }
 
 -(void)next:(id)sender {
-//    //DicionarioViewController *proximo = [[DicionarioViewController alloc]
-//                                     initWithNibName:nil
-//                                     bundle:NULL];
-//    //[self.navigationController pushViewController:proximo
-//                                         animated:YES];
-    aux++;
+    DicionarioViewController *proximo = [[DicionarioViewController alloc] init];
+    [self.navigationController pushViewController:proximo animated:YES];
+    //[self.navigationController  popToViewController:proximo animated:YES];
+    
+    
+    NSMutableArray *arrayVet = [NSMutableArray arrayWithArray:[self.navigationController childViewControllers]]; // child devolve um array de view controlers.
+    
+    [arrayVet removeObject:self];
+    [self.navigationController setViewControllers:arrayVet];
+    NSLog(@"%lu", [[self.navigationController childViewControllers] count]);
+    
+
+    proximo.aux = aux + 1;
     self.navigationItem.title = [dic retornoLetra:aux];
-    label.text = [dic retornoPalavra:aux];
-    imageView.image = [dic retornoImagem:aux];
+    proximo.label.text = [dic retornoPalavra:aux];
+    proximo.imageView.image = [dic retornoImagem:aux];
 }
 
 -(void)back:(id)back {
-    aux--;
+    DicionarioViewController *anterior = [[DicionarioViewController alloc] init];
+    [self.navigationController  pushViewController:anterior animated:YES];
+    
+    NSMutableArray *arrayVet = [NSMutableArray arrayWithArray:[self.navigationController childViewControllers]]; // child devolve um array de view controlers.
+    
+    [arrayVet removeObject:self];
+    [self.navigationController setViewControllers:arrayVet];
+    NSLog(@"%lu", [[self.navigationController childViewControllers] count]);
+    
+    anterior.aux = aux - 1;
     self.navigationItem.title = [dic retornoLetra:aux];
-    label.text = [dic retornoPalavra:aux];
-    imageView.image = [dic retornoImagem:aux];
+    anterior.label.text = [dic retornoPalavra:aux];
+    anterior.imageView.image = [dic retornoImagem:aux];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = [dic retornoLetra:aux];
     label.text = [dic retornoPalavra:aux];
+    
+    
+
+    imageView.image = [dic retornoImagem:aux];
+    [imageView setFrame:CGRectMake(80, 200, 150, 80)];
+    
+    
+    
     //self = [dic retornoPalavra:aux];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [UIView animateWithDuration:2 animations:^{
+        imageView.transform = CGAffineTransformMakeScale(1.8, 2.8);
+    }];
+}
 
 
 
