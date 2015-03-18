@@ -11,7 +11,6 @@
 
 @interface DicionarioViewController (){
     Dicionario *dic;
-    
     UIImageView *imageView;
     
 }
@@ -26,6 +25,7 @@
     [dic banco]; //inicializa os meus arrays.
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
     
     //BOTÃO NEXT.
     UIBarButtonItem *next = [[UIBarButtonItem alloc]
@@ -51,6 +51,21 @@
     
 }
 
+- (void)zoom:(UILongPressGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        [UIView animateWithDuration:0.3 animations:^{
+            imageView.transform = CGAffineTransformMakeScale(3.2f, 3.2f);
+        }];
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.3 animations:^{
+            imageView.transform = CGAffineTransformMakeScale(1.f, 1.f);
+        }];
+    }
+}
+
+
 -(void)next:(id)sender {
     DicionarioViewController *proximo = [[DicionarioViewController alloc] init];
     [self.navigationController pushViewController:proximo animated:YES];
@@ -65,6 +80,10 @@
     
 
     proximo.aux = aux + 1;
+    if (proximo.aux == [dic getCount]) {
+        proximo.aux = 0;
+    }
+    NSLog(@"AUX: %i", aux);
     self.navigationItem.title = [dic retornoLetra:aux];
     proximo.label.text = [dic retornoPalavra:aux];
     proximo.imageView.image = [dic retornoImagem:aux];
@@ -81,6 +100,9 @@
     NSLog(@"%lu", [[self.navigationController childViewControllers] count]);
     
     anterior.aux = aux - 1;
+    if (anterior.aux == 0) {
+        anterior.aux = 25;
+    }
     self.navigationItem.title = [dic retornoLetra:aux];
     anterior.label.text = [dic retornoPalavra:aux];
     anterior.imageView.image = [dic retornoImagem:aux];
@@ -90,7 +112,12 @@
     self.navigationItem.title = [dic retornoLetra:aux];
     label.text = [dic retornoPalavra:aux];
     
+    imageView.userInteractionEnabled = YES;
     
+    UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(zoom:)];
+    [imageView addGestureRecognizer:recognizer];
+    
+
 
     imageView.image = [dic retornoImagem:aux];
     [imageView setFrame:CGRectMake(80, 200, 150, 80)];

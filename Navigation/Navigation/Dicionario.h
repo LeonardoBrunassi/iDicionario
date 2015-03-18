@@ -14,6 +14,7 @@
 -(NSString*) retornoLetra:(int) aux;
 -(NSString*) retornoPalavra:(int) aux;
 -(UIImage*) retornoImagem:(int) aux;
+-(NSInteger) getCount;
 //@property NSString *letra;
 //@property NSString *palavra;
 @property UIImage *img;

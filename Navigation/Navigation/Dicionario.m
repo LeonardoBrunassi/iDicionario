@@ -21,6 +21,11 @@
     imagens = [[NSArray alloc] initWithObjects:@"audi.png",@"bmw.png",@"chevrolet.png",@"dodge.png",@"effa.png",@"ferrari.png",@"geely.png",@"honda.png",@"iveco.png",@"jaguar.png",@"kia.png",@"lamborghini.png",@"maserati.png",@"nissan.png",@"opala.png",@"porsche.png",@"quoris.png",@"ram.png",@"smart.png",@"toyota.png",@"uno.png",@"volvo.png",@"wrangler.png",@"x60.png",@"yugo.png",@"zoe.png", nil];
 }
 
+-(NSInteger) getCount
+{
+    return [letras count];
+}
+
 //Irá retornar uma letra em uma determinada posição do vetor.
 -(NSString *) retornoLetra:(int) aux {
    return [letras objectAtIndex:aux];
