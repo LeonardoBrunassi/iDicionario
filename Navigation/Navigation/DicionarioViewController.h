@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DicionarioViewController : UIViewController
-@property UILabel *label;
+@property UITextField *label;
 @property int aux;
 @property UIImageView *imageView;
 @end

@@ -12,7 +12,7 @@
 @interface DicionarioViewController (){
     Dicionario *dic;
     UIImageView *imageView;
-    
+    UIBarButtonItem *editar;
 }
 
 @end
@@ -24,7 +24,7 @@
     dic = [[Dicionario alloc] init];
     [dic banco]; //inicializa os meus arrays.
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     
     //BOTÃO NEXT.
@@ -38,8 +38,10 @@
     self.navigationItem.leftBarButtonItem=back;
     
     //BOTÃO LABEL.
-    label = [[UILabel alloc] initWithFrame:CGRectMake(130, 450, 150, 20)];
+    label = [[UITextField alloc] initWithFrame:CGRectMake(0, 450, self.view.bounds.size.width, 20)];
+    label.textAlignment = NSTextAlignmentCenter;
     label.text = [dic retornoPalavra:aux];
+    label.font = [UIFont fontWithName:@"Courier New" size:20];
     //[label sizeToFit];
     [self.view addSubview:label];
     
@@ -47,6 +49,14 @@
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(80, 200, 150, 80)]; // x, y , largura, altura
     imageView.image = [dic retornoImagem:aux];
     [self.view addSubview:imageView];
+    
+    //TOOLBAR
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 479, 320, 40)];
+    label.enabled = NO;
+    editar = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editButton:)];
+    NSArray *itemToolBar = [[NSArray alloc] initWithObjects:editar, nil];
+    [toolBar setItems:itemToolBar];
+    [self.view addSubview:toolBar];
     
     
 }
@@ -65,6 +75,19 @@
     }
 }
 
+-(void)editButton:(id)sender {
+    if (label.enabled == YES) {
+        label.enabled = NO;
+        editar.title = @"Editar";
+        label.backgroundColor = [UIColor whiteColor];
+    }
+    else {
+        label.enabled = YES;
+        editar.title = @"Finalizar";
+        label.backgroundColor = [UIColor whiteColor];
+    }
+    
+}
 
 -(void)next:(id)sender {
     DicionarioViewController *proximo = [[DicionarioViewController alloc] init];
