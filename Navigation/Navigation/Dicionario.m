@@ -8,11 +8,11 @@
 
 #import "Dicionario.h"
 
-@implementation Dicionario {
+@implementation Dicionario
     NSArray *letras;
     NSArray *palavras;
     NSArray *imagens;
-}
+
 //@synthesize letra,palavra,img;
 
 -(void) banco {

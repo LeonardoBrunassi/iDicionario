@@ -21,6 +21,8 @@
 		27156F7218B76AF50053A99C /* NavigationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7118B76AF50053A99C /* NavigationTests.m */; };
 		27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7C18BA89430053A99C /* LetraAViewController.m */; };
 		27156F8018BA8B210053A99C /* LetraBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7F18BA8B210053A99C /* LetraBViewController.m */; };
+		B23209411ABB2ECB00DB95AC /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23209401ABB2ECB00DB95AC /* TableViewController.m */; };
+		B242A6FA1ABA125000D36E8A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B242A6F91ABA125000D36E8A /* TabBarViewController.m */; };
 		B2BC4A541AB75A150032C30D /* Dicionario.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC4A531AB75A150032C30D /* Dicionario.m */; };
 		B2BC4A571AB763370032C30D /* DicionarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC4A561AB763370032C30D /* DicionarioViewController.m */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,10 @@
 		27156F7C18BA89430053A99C /* LetraAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetraAViewController.m; sourceTree = "<group>"; };
 		27156F7E18BA8B210053A99C /* LetraBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetraBViewController.h; sourceTree = "<group>"; };
 		27156F7F18BA8B210053A99C /* LetraBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetraBViewController.m; sourceTree = "<group>"; };
+		B232093F1ABB2ECB00DB95AC /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		B23209401ABB2ECB00DB95AC /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		B242A6F81ABA125000D36E8A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		B242A6F91ABA125000D36E8A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		B2BC4A521AB75A150032C30D /* Dicionario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dicionario.h; sourceTree = "<group>"; };
 		B2BC4A531AB75A150032C30D /* Dicionario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dicionario.m; sourceTree = "<group>"; };
 		B2BC4A551AB763370032C30D /* DicionarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicionarioViewController.h; sourceTree = "<group>"; };
@@ -125,6 +131,10 @@
 				27156F5318B76AF50053A99C /* Supporting Files */,
 				27156F7B18BA89430053A99C /* LetraAViewController.h */,
 				27156F7C18BA89430053A99C /* LetraAViewController.m */,
+				B232093F1ABB2ECB00DB95AC /* TableViewController.h */,
+				B23209401ABB2ECB00DB95AC /* TableViewController.m */,
+				B242A6F81ABA125000D36E8A /* TabBarViewController.h */,
+				B242A6F91ABA125000D36E8A /* TabBarViewController.m */,
 				B2BC4A521AB75A150032C30D /* Dicionario.h */,
 				B2BC4A531AB75A150032C30D /* Dicionario.m */,
 				B2BC4A551AB763370032C30D /* DicionarioViewController.h */,
@@ -262,10 +272,12 @@
 			files = (
 				B2BC4A541AB75A150032C30D /* Dicionario.m in Sources */,
 				27156F5D18B76AF50053A99C /* MackenzieAppDelegate.m in Sources */,
+				B242A6FA1ABA125000D36E8A /* TabBarViewController.m in Sources */,
 				27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */,
 				B2BC4A571AB763370032C30D /* DicionarioViewController.m in Sources */,
 				27156F8018BA8B210053A99C /* LetraBViewController.m in Sources */,
 				27156F5918B76AF50053A99C /* main.m in Sources */,
+				B23209411ABB2ECB00DB95AC /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

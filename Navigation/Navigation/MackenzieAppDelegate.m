@@ -9,23 +9,19 @@
 #import "MackenzieAppDelegate.h"
 #import "LetraAViewController.h"
 #import "DicionarioViewController.h"
+#import "TabBarViewController.h"
 
 @implementation MackenzieAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    DicionarioViewController *viewController = [[DicionarioViewController alloc]
-                                           initWithNibName:nil
-                                           bundle:nil];
+    TabBarViewController *tabBar = [[TabBarViewController alloc] init];
     
-    
-    self.navigationController = [[UINavigationController alloc]
-                                 initWithRootViewController:viewController];
     self.window = [[UIWindow alloc]
                    initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
+    self.window.rootViewController = tabBar;
 
-
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
