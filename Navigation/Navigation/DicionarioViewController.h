@@ -12,4 +12,5 @@
 @property UITextField *label;
 @property int aux;
 @property UIImageView *imageView;
+@property BOOL imagemBool;
 @end

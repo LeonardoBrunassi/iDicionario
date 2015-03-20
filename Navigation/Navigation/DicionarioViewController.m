@@ -18,13 +18,13 @@
 @end
 
 @implementation DicionarioViewController
-@synthesize label,aux,imageView;
+@synthesize label,aux,imageView,imagemBool;
 - (void)viewDidLoad {
     [super viewDidLoad];
     dic = [[Dicionario alloc] init];
     [dic banco]; //inicializa os meus arrays.
     
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     
     //BOTÃO NEXT.
@@ -46,7 +46,7 @@
     [self.view addSubview:label];
     
     //IMAGEM.
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(80, 200, 150, 80)]; // x, y , largura, altura
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(80, 150, 80, 80)]; // x, y , largura, altura
     imageView.image = [dic retornoImagem:aux];
     [self.view addSubview:imageView];
     
@@ -64,12 +64,12 @@
 - (void)zoom:(UILongPressGestureRecognizer *)sender
 {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        [UIView animateWithDuration:0.3 animations:^{
-            imageView.transform = CGAffineTransformMakeScale(3.2f, 3.2f);
+        [UIView animateWithDuration:0.2 animations:^{
+            imageView.transform = CGAffineTransformMakeScale(2.2f, 2.2f);
         }];
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:0.2 animations:^{
             imageView.transform = CGAffineTransformMakeScale(1.f, 1.f);
         }];
     }
@@ -79,12 +79,12 @@
     if (label.enabled == YES) {
         label.enabled = NO;
         editar.title = @"Editar";
-        label.backgroundColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor lightGrayColor];
     }
     else {
         label.enabled = YES;
         editar.title = @"Finalizar";
-        label.backgroundColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor lightGrayColor];
     }
     
 }
@@ -123,7 +123,7 @@
     NSLog(@"%lu", [[self.navigationController childViewControllers] count]);
     
     anterior.aux = aux - 1;
-    if (anterior.aux == 0) {
+    if (anterior.aux == -1) {
         anterior.aux = 25;
     }
     self.navigationItem.title = [dic retornoLetra:aux];
@@ -133,6 +133,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = [dic retornoLetra:aux];
+    NSLog(@"aqui %d",aux);
     label.text = [dic retornoPalavra:aux];
     
     imageView.userInteractionEnabled = YES;
@@ -150,10 +151,33 @@
     //self = [dic retornoPalavra:aux];
 }
 
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *anyTouch = [touches anyObject];
+    CGPoint touchLocation = [anyTouch locationInView:self.view];
+    if (CGRectContainsPoint(imageView.frame, touchLocation)) {
+        imagemBool = YES;
+    }
+}
+
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint localTouch = [touch locationInView:self.view];
+    if (imagemBool) {
+        [UIView animateWithDuration:0 animations:^{
+            imageView.transform = CGAffineTransformMakeTranslation(localTouch.x-imageView.center.x, localTouch.y-imageView.center.y);
+        }];
+    }
+    
+}
+
 -(void)viewDidAppear:(BOOL)animated {
     [UIView animateWithDuration:2 animations:^{
-        imageView.transform = CGAffineTransformMakeScale(1.8, 2.8);
+        imageView.transform = CGAffineTransformMakeScale(1.2, 2.2);
     }];
+}
+
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    imagemBool = NO;
 }
 
 

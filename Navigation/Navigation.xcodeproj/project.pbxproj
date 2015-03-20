@@ -22,6 +22,8 @@
 		27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7C18BA89430053A99C /* LetraAViewController.m */; };
 		27156F8018BA8B210053A99C /* LetraBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7F18BA8B210053A99C /* LetraBViewController.m */; };
 		B23209411ABB2ECB00DB95AC /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23209401ABB2ECB00DB95AC /* TableViewController.m */; };
+		B23209431ABC94DD00DB95AC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23209421ABC94DD00DB95AC /* Realm.framework */; };
+		B23209451ABC951D00DB95AC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B23209441ABC951D00DB95AC /* libc++.dylib */; };
 		B242A6FA1ABA125000D36E8A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B242A6F91ABA125000D36E8A /* TabBarViewController.m */; };
 		B2BC4A541AB75A150032C30D /* Dicionario.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC4A531AB75A150032C30D /* Dicionario.m */; };
 		B2BC4A571AB763370032C30D /* DicionarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC4A561AB763370032C30D /* DicionarioViewController.m */; };
@@ -60,6 +62,8 @@
 		27156F7F18BA8B210053A99C /* LetraBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetraBViewController.m; sourceTree = "<group>"; };
 		B232093F1ABB2ECB00DB95AC /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		B23209401ABB2ECB00DB95AC /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		B23209421ABC94DD00DB95AC /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		B23209441ABC951D00DB95AC /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		B242A6F81ABA125000D36E8A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		B242A6F91ABA125000D36E8A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		B2BC4A521AB75A150032C30D /* Dicionario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dicionario.h; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23209451ABC951D00DB95AC /* libc++.dylib in Frameworks */,
+				B23209431ABC94DD00DB95AC /* Realm.framework in Frameworks */,
 				27156F4F18B76AF50053A99C /* CoreGraphics.framework in Frameworks */,
 				27156F5118B76AF50053A99C /* UIKit.framework in Frameworks */,
 				27156F4D18B76AF50053A99C /* Foundation.framework in Frameworks */,
@@ -114,10 +120,12 @@
 		27156F4B18B76AF50053A99C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B23209441ABC951D00DB95AC /* libc++.dylib */,
 				27156F4C18B76AF50053A99C /* Foundation.framework */,
 				27156F4E18B76AF50053A99C /* CoreGraphics.framework */,
 				27156F5018B76AF50053A99C /* UIKit.framework */,
 				27156F6518B76AF50053A99C /* XCTest.framework */,
+				B23209421ABC94DD00DB95AC /* Realm.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -396,6 +404,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Navigation/Navigation-Prefix.pch";
 				INFOPLIST_FILE = "Navigation/Navigation-Info.plist";
@@ -409,6 +421,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Navigation/Navigation-Prefix.pch";
 				INFOPLIST_FILE = "Navigation/Navigation-Info.plist";
